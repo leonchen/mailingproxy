@@ -5,14 +5,14 @@ var transport = mailer.createTransport(config.mailer.type, config.mailer.options
 
 redis.on('connect', function () {
   console.log('redis connected');
-
-  redis.on("message", function (channel, message) {
-    console.log(channel, ' got message: ', message)
-    sendMail(message);
-  });
-
-  redis.subscribe(config.redis.channel);
 });
+
+redis.on("message", function (channel, message) {
+  console.log(channel, ' got message: ', message)
+  sendMail(message);
+});
+
+redis.subscribe(config.redis.channel);
 
 function sendMail(message) {
   try {
