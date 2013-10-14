@@ -5,6 +5,7 @@
   "scripts": {
     "start": "node app.js"
   },
+  "repository": "https://github.com/leonchen/mailingproxy",
   "dependencies": {
     "nodemailer" :"*",
     "redis": "*"
